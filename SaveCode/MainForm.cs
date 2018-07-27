@@ -66,6 +66,11 @@ namespace SaveCode
 
             File.WriteAllText(currentFolderPath + @"\Info.txt", buildInfo.ToString().Trim());
 
+            OldFields.GetFormData();
+            FormVariables.ClearValues();
+
+            MessageBox.Show("Saved!");
+
         }
 
         private void ShowHideErrors(object sender, EventArgs e)
