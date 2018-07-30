@@ -189,6 +189,8 @@
             this.Controls.Add(this.titleInput);
             this.Controls.Add(this.titleLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(382, 446);
+            this.MinimumSize = new System.Drawing.Size(382, 446);
             this.Name = "MainForm";
             this.Text = "Code Saver";
             this.ResumeLayout(false);

@@ -14,7 +14,7 @@ namespace SaveCode
 {
     public partial class MainForm : Form
     {
-        private string[] languages = {"C#","Javascript"};
+        private string[] languages = {"C#","Javascript","Java"};
         private string mainFolderPath = @"C:\Users\Stoyan\Documents\SavedCode";
 
         public MainForm()
@@ -45,12 +45,24 @@ namespace SaveCode
             }
             else
             {
-                MessageBox.Show("There is already saved code with this title!");
+                MessageBox.Show(@"There is already saved code with this title!");
                 return;
             }
 
             string language = languageMenu.SelectedIndex == 0 ? ".cs" : ".js";
 
+            switch (languageMenu.SelectedIndex) 
+            {
+                case 0:
+                    language = ".cs";
+                    break;
+                case 1:
+                    language = ".js";
+                    break;
+                case 2:
+                    language = ".java";
+                    break;
+            }
 
             File.WriteAllText(currentFolderPath + @"\Code" + language, FormVariables.ContentInput.Text);
 
@@ -69,7 +81,7 @@ namespace SaveCode
             OldFields.GetFormData();
             FormVariables.ClearValues();
 
-            MessageBox.Show("Saved!");
+            MessageBox.Show(@"Saved!");
 
         }
 
@@ -150,7 +162,7 @@ namespace SaveCode
             }
             else
             {
-                MessageBox.Show("There is nothing to undo!");
+                MessageBox.Show(@"There is nothing to undo!");
             }
         }
     }
