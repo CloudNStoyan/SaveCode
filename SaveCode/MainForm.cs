@@ -14,7 +14,7 @@ namespace SaveCode
 {
     public partial class MainForm : Form
     {
-        private string[] languages = {"C#","Javascript","Java"};
+        private string[] languages = {"Text","C#","Javascript","Java"};
         private string mainFolderPath = @"C:\Users\Stoyan\Documents\SavedCode";
 
         public MainForm()
@@ -28,6 +28,9 @@ namespace SaveCode
             FormVariables.ErrorLabel.Visible = false;
             FormVariables.ErrorInput.Visible = false;
             CheckForFolder();
+
+
+            this.languageMenu.SelectedIndex = 0;
         }
 
         private void Save(object sender, EventArgs e)
@@ -49,17 +52,20 @@ namespace SaveCode
                 return;
             }
 
-            string language = languageMenu.SelectedIndex == 0 ? ".cs" : ".js";
+            string language = string.Empty;
 
             switch (languageMenu.SelectedIndex) 
             {
                 case 0:
-                    language = ".cs";
+                    language = ".txt";
                     break;
                 case 1:
-                    language = ".js";
+                    language = ".cs";
                     break;
                 case 2:
+                    language = ".js";
+                    break;
+                case 3:
                     language = ".java";
                     break;
             }
